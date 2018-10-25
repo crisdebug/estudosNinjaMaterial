@@ -1,0 +1,34 @@
+{% extends 'atividades/_layouts/layout.html' %}
+
+{% load widget_tweaks %}
+{% load staticfiles %}
+
+{% block img %}<link rel="shortcut icon" href="{% static 'imgens/logo.png' %}" type="image/png"> {% endblock %}
+{% block title %}<title>Atividades  </title>{% endblock %}
+
+{% block conteudo %}
+    
+        <div class="bg-contact2" style= "background-image: url('/static/imagens/bg-12.jpg')">
+            <div class="container-contact2">                 
+                <main class="jumbotron" style="background: #fff; box-shadow: 5px 10px 10px  rgba(0, 0, 0, 0.5); width: 80%; "> 
+                    <ul>   
+                   {% for atividade in objects %}
+                        <li>{{ user.nome }}</li>
+                        <li>{{ atividade.nome }}</li>
+                   {% empty %}
+                   <ul>
+                        <li style="text-decoration: none; list-style: none;" ><h1 style="color: bla;">Nenhuma <code>Atividade</code> cadastrada nesta turma </h1>
+                            <div class="text-right">
+                                <a href="/v{{ turma.codigo }}/criar" class="btn btn-primary">
+                                    Criar Atividade
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                   {% endfor %}
+                   </ul>
+                </main>
+            </div>
+        </div>
+        
+{% endblock %}

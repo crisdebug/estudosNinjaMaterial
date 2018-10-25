@@ -1,0 +1,42 @@
+{% extends 'atividades/_layouts/layout.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} <title>Criar Atividade</title> {% endblock %}
+
+{% block conteudo %}
+                 
+    <main id="main_criar_atividade" class="bg-contact2" style="background-image: url('/static/imagens/bg-04.jpg');">
+        <div class="container-contact2">
+            <div class="jumbotron jumbotron" style="box-shadow: 0px 0px 10px  rgba(5, 0, 0, 10); background: #f2f4f6; color: #495057; 
+            border: 1px solid #ced4da;" >
+                <form class="formulario_criar_atividade" method='POST'>
+                    {% csrf_token %}
+                    <!-- <input type="hidden" name="MAX_FILE_SIZE" value="1024" />
+                    <input type="file" />
+    
+                    <input type="text" placeholder="Nome do aluno" size="10" required>-->
+                    <div class="divs"><label class="label1" for="Nome"><h5>Nome da Disciplina:</h5></label>
+                    {% render_field form.disciplina placeholder+='Nome da Disciplina' type+='text' size+='25' %}</div>
+
+                    <div class="divs"><label class="label2" for="Nome"><h5>Nome da atividade:</h5></label>
+                    {% render_field form.nome placeholder+='Nome da Atividade' type+='text' size+='25' %}</div>
+    
+                    <div class="divs"><label class="label22" for="data"><h5>Data de entrega:</h5></label>
+                    {% render_field form.entrega  %}</div>
+    
+                    <div class="divs"><label class="label3" for="valor"><h5>Valor da atividade:</h5></label>
+                    {% render_field form.nota placeholder+='Nota da Atividade' type+='text' size+='15' %}</div>
+    
+                    <div class="divs"><label class="label_observacoes" for="observacoes"><h5>Observações:</h5></label>
+                    {% render_field form.obs placeholder+='Observações sobre a atividade' %}</div>
+                    
+                    <div class="divs1"><input class="btn btn-primary btn-lg" id="cancelar_atividade" type="reset" value="Cancelar"  role="button">
+                    <input class="btn btn-primary btn-lg" id="enviar_atividade" type="submit" value="Criar"  role="button">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

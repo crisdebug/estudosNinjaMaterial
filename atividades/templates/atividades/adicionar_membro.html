@@ -1,0 +1,28 @@
+{% extends 'atividades/_layouts/layout.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} <title>Adicionar Membro</title> {% endblock %}
+
+{% block conteudo %}
+    <body>
+    <div class="bg-contact2" style= "background-image: url('/static/imagens/bg-06.jpg');">
+        <div class="container-contact2">                 
+            <form class="jumbotron jumbotron" id="adicionar_membro"  method="POST">
+                {% csrf_token %}
+                <br>
+                <h4 class="display-6">Adicionar Membro</h4>
+                <hr class="my-4">
+                <h3>Insira o email do aluno</h3>
+                <br>
+                <div class="jumbotron jumbotron" id="inserir_email">
+                    <label class="email_aluno" for="email_aluno"><h5>Email</h5></label>
+                    <input type="email" placeholder="exemplo@exemplo.com" name="email_aluno" size="35" id="" required>
+                    <input id="enviar_membro" type="submit" value="Enviar" class="btn btn-primary btn-lg" name="nome" role="button">
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+  {% endblock %}

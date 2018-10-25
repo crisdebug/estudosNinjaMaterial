@@ -1,0 +1,57 @@
+{% extends 'atividades/_layouts/layout_atividade.html' %}
+{% load comments %}
+
+{% load widget_tweaks %}
+{% load static %}
+{% block conteudo %}
+{% block title %} <title>{{ atividade.nome }}</title> {% endblock %}
+
+<div class="jumbotron jumbotron" id="adicionar_membro" style="margin-left: 10%; padding-left: 15px; padding-right: 15px;"
+  method="POST">
+  <h3 class="text-left" style="float: left; width: 50%">{{ atividade.turma.nome }}</h3>
+  <div class="text-right" style="width:50%; float: right;">
+    <a href="/e/{{ turma.codigo }}/"><i class="fa fa-user-plus bg-white" style="font-size: 30px; margin-right: 20px;"></i></a>
+    {% if atividade.criador == aluno %}
+    <a href="/v/{{ turma.codigo }}/a/{{ atividade.id }}/editar"><i class="fa fa-edit bg-white" style="font-size: 30px;"></i></a>
+    {% endif %}
+  </div>
+
+  <div class="jumbotron jumbotron" id="inserir_email">
+    <div class="user-panel d-flex" style="margin-left: 7%; margin-top: -5%">
+      <div class="image">
+        <img src="{% static 'dist/img/avatar.png' %}" class="img-circle elevation-2" alt="User Image" style="height: 60px; width: 60px;">
+      </div>
+      <div class="info">
+        <h3>{{ user.get_full_name }}</h3>
+      </div>
+    </div>
+
+    <h2> {{ atividade.nome }}</h2><br>
+    <div class="text-left" style="width: 55%;">
+      <code> <h5> <em>Data de Entrega:</em></code> {{ atividade.entrega }}</h5>
+      <h5>Valor da Atividade: {{ atividade.nota }}</h5>
+      <h5>Observações: {{ atividade.obs }}</h5>
+    </div>
+    <br>
+
+    {% render_comment_list for atividade %}
+    {% get_comment_form for atividade as form %}
+    <form action="{% comment_form_target %}" method="POST">
+      {% csrf_token %}
+      {% render_field form.comment placeholder+='Comentário...' type+='text' size+='25' rows='2' cols='25' %}
+      {{ form.honeypot }}
+      {{ form.content_type }}
+      {{ form.object_pk }}
+      {{ form.timestamp }}
+      {{ form.security_hash }}
+      <input type="submit" value="Comentar" id="id_submit" />
+    </form>
+
+  </div>
+</div>
+<footer>
+  <div class="jumbotron jumbotron">&copy; Copyright<strong> Estudos.Ninja 2018.</strong> Todos os direitos reservados à
+    <a href="https://mambee-ifpi.firebaseapp.com/" target="_blank"> Mambee - Fábrica e Escola de Software.</a></div>
+</footer>
+
+{% endblock %}

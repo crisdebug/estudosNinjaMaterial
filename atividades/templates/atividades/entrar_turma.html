@@ -1,0 +1,36 @@
+{% extends 'atividades/_layouts/layout.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} <title>Entrar em Turma</title> {% endblock %}
+
+{% block conteudo %}
+
+    <div class="bg-contact2" style= "background-image: url('/static/imagens/bg-04.jpg');">
+        <div class="jumbotron container-contact2">                 
+            
+            <form class="jumbotron fundo_turmas" id="fundo_turmas" method="POST">
+                {% csrf_token %}
+                <br>
+                <h4 class="display-5">Entre em uma turma</h4>
+                <hr class="my-4">
+                <br>
+                <h3 style="margin-top: -25px;">Entrar em Turma</h3>
+                <hr class="my-4">
+                <br>
+                <br>
+                <div class="criar_turma1" style="margin-bottom: 0%; height: 50px;">                               
+                    <div><h3 class="nome_turma1" id="h3">Código da Turma</h3></div>
+                    <div style="margin-left: 30%;"> {% render_field form.codigo class+="input_turma" placeholder+="Código da turma" autofocus+="True" required+="True" size+="20" maxlenght+="5 " %}
+                    <input style="margin-bottom: -15%; margin-left: 40px; margin-top: -13%;" type="submit" value="Entrar"  class="btn btn-primary btn-lg" name="nome" role="button"></div>
+                    
+                </div>
+                <h3>Ou </h3><a href="/criar-turma/" class="md-4 center-block"><button type="button" class="btn btn-secondary ">Crie uma Turma</button></a>
+
+            </form> 
+           
+        </div>
+    </div>
+  {% endblock %}
+ 

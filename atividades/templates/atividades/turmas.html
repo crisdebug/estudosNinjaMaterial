@@ -1,0 +1,47 @@
+{% extends 'atividades/_layouts/layout_turmas.html' %}
+
+{% load staticfiles %}
+{% load widget_tweaks %} 
+{% block title %} <title>Turmas</title> {% endblock %}
+
+    
+   
+    {% block ativo %}"class+='active'"{% endblock %}
+    
+    {% block conteudo %}
+
+    <div class="bg-contact2" style="background-image: url('/static/imagens/bg-10.jpg');">
+        <div class="container-contact2">
+            <main style="color: #fff" >
+                
+                <h3 style="text-align: center; margin-top: -15%;">Turmas que você está</h3>
+                <hr style="background: gray; height: 0.05px;" class="my-6">
+                <ul style="text-align: center;" class="lista">
+                    {% if object_list|length > 0 %}
+                    {% for turma in object_list %} 
+                    
+                    <li style="text-decoration: none; list-style: none;" class="item">
+                        <a href="/v/{{ turma.turma.codigo }}">          
+                        <button class="card-primary card-outline col-lg-5 col-md-5 col-sm-5 col-xs-5" id="buttao" type="button">
+                            <h4 class="h"><p class="h" style="color: #000;">Nome</p><br>{{ turma.turma.nome }}</h4>
+                            <h5 class="h-1"><p class="h-1" style="color: #000;">Código</p><br>{{ turma.turma.codigo }}</h5>
+                        </button>
+                        </a>
+                    </li>
+                            
+                    {% endfor %}
+                    {% else %}
+                    <div class="text-center mt-5 mb-5 jumbotron" style="background: #fff; box-shadow: 5px 10px 10px  rgba(0, 0, 0, 0.5);">
+                        <h3 style="color: #000;">Você não está em nenhuma <code>Turma</code> ainda.</h3>
+                        <div class="text-right">
+                            <a href="{% url 'entrar-turma' %}" class="btn btn-primary">
+                                Entrar Em Turma
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </ul>
+            </main>
+        </div>
+    </div>
+{% endblock %}

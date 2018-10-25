@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/home/ads/.virtualenvs/pibic-samuel/bin/python",
+    "python.venvPath": "/home/ads/.virtualenvs/",
+    "python.linting.pylintArgs": ["--load-plugins=pylint_django"]
+}

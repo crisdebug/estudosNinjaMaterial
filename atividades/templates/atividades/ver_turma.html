@@ -1,0 +1,55 @@
+{% extends 'atividades/_layouts/layout.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+{% block conteudo %}
+
+  {% block title %} <title>{{ turma.nome }}</title> {% endblock %}
+  <div class="bg-contact2" style= "background-image: url('/static/imagens/bg-011.jpg')">
+    <div class="container-contact2">
+      <div class="container con">
+          <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="card">
+                    <div class="card-body card-primary card-outline">
+                      <h5 class="card-title">Nome da turma: <code>{{ turma.nome }}</code> <br> Codigo da turma: <code>{{ turma.codigo }}</code></h5>
+                      <p class="card-text">
+                          Adicione alguém compartilhando este link: <code><a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}/e/{{ turma.codigo }}">{{ request.scheme }}://{{ request.META.HTTP_HOST }}/e/{{ turma.codigo }}</a></code>
+                      </p>
+                      <a class="btn btn-primary" href="/v/{{ turma.codigo }}/criar">Criar Nova atividade</a>
+                    </div>
+                  </div>
+                </div>
+
+                {% if object_list|length > 0 %}
+                {% for atividade in object_list %}
+                  <div style="margin-bottom: 20%;" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <div class="card">
+                        <div class="card-body card-primary card-outline">
+                          <h5 class="card-title"><a href="/v/{{ turma.codigo }}/a/{{ atividade.id }}">{{ atividade.nome }}</a> 
+                            <h4 class="text-right">{{ atividade.entrega|date:"d/m/Y" }}</h4></h5>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  
+                {% endfor %}
+                {% else %}
+                <div style="margin-bottom: 20%;" class="col-lg-12 col-md-10 col-sm-10 col-xs-10">
+                    <div class="card">
+                      <div class="card-body card-primary card-outline">
+                        <h5 class="card-title text-center">Não há nenhuma <code>atividade</code> nesta turma</h5>
+                        <p class="card-text">                           
+                        </p>
+                      </div>
+                    </div>
+                </div>
+
+              </div>
+          </div>
+            {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
