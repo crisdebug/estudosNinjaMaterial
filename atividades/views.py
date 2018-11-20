@@ -207,7 +207,7 @@ def gerar_codigo(size=5, chars=string.ascii_uppercase+string.ascii_lowercase+str
 
 
 def checar_atividades(codigo_turma):
-    q = Atividade.objects.filter(turma=Turma.objects.get(codigo=codigo_turma))
+    q = Atividade.objects.all()
     for atividade in q:
         if atividade.entrega <= date.today():
             atividade.delete()

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Recuperação de Senha</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- Material Kit CSS -->
+  <link href="assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
+
+  <style>
+    @media(max-width:320px){
+      .page-header{
+        padding-top: 25%;
+      }    
+      }
+
+      @media(min-height:667px){
+        .page-header{
+          padding-top: 20%;
+        }
+      }
+      @media(min-height:640px){
+        .page-header{
+          padding-top: 25%
+        }
+      }
+      @media(min-height:731px){
+        .page-header{
+          padding-top: 0%;
+        }
+      }
+      @media(max-height:568px){
+        .page-header{
+          padding-top: 50%;
+        }
+      }
+      body{
+        background: url(assets/img/bg-01.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+    </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-static-top navbar-expand-lg" color-on-scroll="100" style="margin-bottom: 0%">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand mx-auto" href="https://demos.creative-tim.com/material-kit/index.html">
+          Estudos.ninja </a>
+      </div>
+  </nav>
+  <div class="page-header page-filter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-8 ml-auto mr-auto">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title text-center">Cadastro</div>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Nome...">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="sobrenome">Sobrenome</label>
+                    <input type="text" class="form-control" id="sobrenome" placeholder="Sobrenome...">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Email...">
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="senha1">Senha</label>
+                    <input type="password" class="form-control" id="senha1" placeholder="Senha...">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="senha2">Confirmar Senha</label>
+                    <input type="password" class="form-control" id="senha2" placeholder="Confirmar Senha...">
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary center-block">Cadastrar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <footer class="page-footer font-small blue fixed-bottom" style="position: static">
+        <div class="container">
+          <div class="row py-4 d-flex align-items-center">
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+              <a href="https://www.creative-tim.com/license">
+                Licenses
+              </a>
+            </div>
+            <div class="col-md-6 col-lg-7 text-center text-md-right" style="color:black">
+              &copy;
+              <script>
+                document.write(new Date().getFullYear())
+              </script>, made with <i class="material-icons">favorite</i> by
+              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+  </div>
+</body>
+
+</html>
