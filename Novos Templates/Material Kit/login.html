@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/ninja.jpg">
+  <link rel="icon" type="image/png" href="assets/img/ninja.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     estudos.ninja
@@ -29,6 +29,21 @@
         padding-top: 10%;
       }
     }
+    @media(max-height:568px){
+      .page-header{
+        padding-top: 25%;
+      }
+    }
+    @media(max-height:1366px){
+      footer{
+        position: fixed;
+      }
+    }
+    @media(max-height:823px){
+      footer{
+        position: static !important;
+      }
+    }
     body{
         background: url(assets/img/bg-011.jpg) no-repeat center center fixed;
         -webkit-background-size: cover;
@@ -40,13 +55,13 @@
 </head>
 
 <body class="login-page sidebar-collapse">
-  <nav class="navbar navbar-static-top navbar-expand-lg" color-on-scroll="100" style="margin-bottom: 0%">
-    <div class="container">
-      <div class="navbar-translate">
-        <a class="navbar-brand mx-auto" href="https://demos.creative-tim.com/material-kit/index.html">
-          Estudos.ninja </a>
-      </div>
-  </nav>
+    <nav class="navbar navbar-static-top navbar-expand-lg" color-on-scroll="100" style="margin-bottom: 0%;">
+        <div class="container">
+          <div class="navbar-translate">
+            <a class="navbar-brand mx-auto" href="https://demos.creative-tim.com/material-kit/index.html" style=" font-size: 2rem">
+              Estudos.ninja </a>
+          </div>
+      </nav>
   <div class="page-header header-filter">
     <div class="container">
       <div class="row">
@@ -100,7 +115,7 @@
           </div>
         </div>
       </div>
-      <footer class="page-footer font-small blue fixed-bottom" style="position: static">
+      <footer class="page-footer font-small blue fixed-bottom">
         <div class="container">
           <div class="row py-4 d-flex align-items-center">
             <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
