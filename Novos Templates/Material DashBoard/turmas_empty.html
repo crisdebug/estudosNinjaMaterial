@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/ninja.jpg">
-  <link rel="icon" type="image/png" href="assets/img/ninja.png">
+  <link rel="icon" type="image/png" href="assets/img/ninja.png"> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     Turmas
@@ -15,14 +15,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
-  <style>
-    #infotext{
-      padding-left: 1%;
-      padding-top: 1%;
-      
-    }
-    
-  </style>
 </head>
 
 <body class="">
@@ -34,14 +26,14 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo">
-        <a href="/" class="simple-text logo-normal">
-         Estudos.Ninja
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          Estudos.Ninja
         </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="/turmas">
+            <a class="nav-link" href="#0">
               <i class="material-icons">list</i>
               <p>Turmas</p>
             </a>
@@ -53,80 +45,53 @@
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid text-center">
-          <div class="navbar-wrapper text-center">
-            <h3><a class="navbar-brand" href="#pablo">Turmas</a></h4>
+          <div class="container-fluid text-center">
+            <div class="navbar-wrapper text-center">
+              <h3><a class="navbar-brand" href="#pablo">Turmas</a></h4>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown show">
+                  <a class="nav-link" href="#pablo" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Usuario Usuario <i class="material-icons">person</i>
+                  </a>
+                  <div class="dropdown-menu dropdwon-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/logout">Sair</a>
+                  </div>
+                </li>
+                <!-- your navbar here -->
+              </ul>
+            </div>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown show">
-                <a class="nav-link" href="#pablo" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Usuario Usuario <i class="material-icons">person</i>
-                </a>
-                <div class="dropdown-menu dropdwon-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="/logout">Sair</a>
-                </div>
-              </li>
-              <!-- your navbar here -->
-            </ul>
-          </div>
-        </div>
-      </nav>
+        </nav>
       <!-- End Navbar -->
       <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-2">
-              <a href="/">
+          
+        <div class="container-fluid" >
+          <!-- your content here -->
+          <h3 class="text-center">Parece que você não está em nenhuma Turma</h3>
+          <div class="row align-items-center">
+            <div class="text-center " style="width:100%;">
               <button type="button" class="btn btn-success">
                 <i class="material-icons">add</i>
                 Criar Turma
               </button>
-            </a>
             </div>
-            <a href="/">
-            <div class="col-lg-2">
+          </div>
+          <div class="row">
+            <div class="text-center" style="width:100%">
               <button type="button" class="btn btn-info">
                 <i class="material-icons">person</i>
                 Entrar em Turma
               </button>
-            </a>
             </div>
           </div>
-          <!-- your content here -->
-          <a href="/">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="float-left">EXEMPLO</h2>
-              <h3 class="float-right" style="color: grey">AAAAA</h3>
-            </div>
-          </div>
-        </a>
-        <a href="/">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="float-left">EXEMPLO</h2>
-              <h3 class="float-right" style="color: grey">AAAAA</h3>
-            </div>
-          </div>
-        </a>
-        <a>
-          <div class="card">
-            <div class="card-body">
-              <h3 class="float-left">EXEMPLO</h2>
-              <h3 class="float-right" style="color: grey">AAAAA</h3>
-            </div>
-            <div class="card-footer">
-              <i style="color:red" class="material-icons">info</i> <h6 id="infotext" class="text-danger">2 Atividades próximas</h6>
-            </div>
-          </div>
-        </a>
         </div>
       </div>
       <footer class="footer">
