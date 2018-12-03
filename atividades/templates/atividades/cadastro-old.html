@@ -1,0 +1,95 @@
+{% load staticfiles %}
+{% load widget_tweaks %}
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'css/testes.css' %}">
+        <title>Cadastro</title>
+        <link rel="stylesheet" href="{% static 'bootstrap-4.1.1-dist/css/bootstrap.css' %}">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <header class="logo">
+            <h2>Estudos.Ninja</h2>
+        </header>
+        
+        <div class="bg-contact2" style="background-image: url('/static/imagens/bg-01.jpg');">
+            <div class="container-contact2">
+                <div class="header_cadastro">
+                    <h1 style="color: white;">Agora é só preencher os campos para se cadastrar!</h1>
+                </div>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4>
+                                <i class="fa fa-warning">
+                                Aviso: {{ message.message }}</i>
+                            </h4>
+                            <p></p>
+
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <main id="cadastro_teste" class="jumbotron jumbotron">
+                    <div >
+                        <div><h1 style="text-decoration: underline" class="cadastro">Cadastre-se</h1></div>
+                        <hr class="my-4">
+                        
+                        <form id="form" method="POST"> 
+                                {% csrf_token %}             
+                            <div id="inputs1" class="inputs"><label class="labels" for="nome"><h5>Nome</h5></label>
+                               {% render_field form.first_name class+="input" placeholder+="Nome" autofocus+="True" required+="True" size+="30" %}
+                            </div>
+                            
+                            <div class="inputs" id="inputs2" ><label  style="margin-left: -4%" class="labels" for="nome"><h5>Sobrenome</h5></label>
+                                {% render_field form.last_name class+="input" placeholder+="Sobrenome" required+="True" size+="30" %}
+                            </div>
+
+                            <div id="inputs3" class="inputs"><label class="labels" for="email"><h5>Email</h5></label>
+                                {% render_field form.username class+="input" placeholder+="enxemplo@exemplo.com" required+="True" size+="30" %}
+                            </div>
+
+                            <div id="inputs4" class="inputs"><label class="labels" for="senha1"><h5>Senha</h5></label>
+                                {% render_field form.password1 class+="input" id+="password" placeholder+="Senha" type="password" required+="True" min_length+="8" max_length+="16" size+="30" %}
+                            </div>
+
+                            <div id="inputs5" class="inputs"><label class="labels" class="confirmar_cadastro1" for="confirma"><h5>Confirmar Senha</h5></label>
+                              {% render_field form.password2 class+="input" placeholder+="Repita a Senha" id+="confirm_password" type="password" required+="True" min_length+="8" max_length+="16" size+="30" onClick+="validatePassword()" %}<span class="validity"></span>
+                            </div>
+
+                            <div class="inputs"><input class="inp1-" id="botao_cadastro1" type="submit" name="enviar" value="Cadastrar"></div>
+                               
+                        </form>
+                    </div>
+                </main>       
+            </div>
+        </div>       
+        
+        <footer>
+            <div class="jumbotron jumbotron">&copy; Copyright<strong> Estudos.Ninja 2018.</strong> Todos os direitos reservados à <a href="https://mambee-ifpi.firebaseapp.com/" target="_blank"> Mambee - Fábrica e Escola de Software.</a></div>
+        </footer>
+        
+        <script>
+                var password = document.getElementById("password")
+                    , confirm_password = document.getElementById("confirm_password");
+                
+                function validatePassword(){
+                if(password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Senhas diferentes!");
+                } else {
+                    
+                    confirm_password.setCustomValidity('');
+                    }
+                }
+                
+                password.onchange = validatePassword;
+                confirm_password.onkeyup = validatePassword;
+                    </script>
+
+    </body>
+</html> 

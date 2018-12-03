@@ -1,95 +1,173 @@
+{% extends 'atividades/_layouts/template.html' %}
+
 {% load staticfiles %}
 {% load widget_tweaks %}
-<!DOCTYPE HTML>
-<html lang="pt-BR">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="{% static 'css/testes.css' %}">
-        <title>Cadastro</title>
-        <link rel="stylesheet" href="{% static 'bootstrap-4.1.1-dist/css/bootstrap.css' %}">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <header class="logo">
-            <h2>Estudos.Ninja</h2>
-        </header>
-        
-        <div class="bg-contact2" style="background-image: url('/static/imagens/bg-01.jpg');">
-            <div class="container-contact2">
-                <div class="header_cadastro">
-                    <h1 style="color: white;">Agora é só preencher os campos para se cadastrar!</h1>
-                </div>
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4>
-                                <i class="fa fa-warning">
-                                Aviso: {{ message.message }}</i>
-                            </h4>
-                            <p></p>
+<!doctype html>
+<html lang="en">
 
-                        </div>
-                    {% endfor %}
-                {% endif %}
+<head>
+  {% block title %} <title>Cadastre-se</title>{% endblock %}
+  {% block style %}
+  <style>
+    .btn-primary{
+      background-color: #00bcd4 !important
+    }
+      @media(max-width:320px){
+        .page-header{
+          padding-top: 25%;
+        }    
+        }
+  
+        @media(min-height:667px){
+          .page-header{
+            padding-top: 20%;
+          }
+          
+        }
+        @media(max-height:667px){
+          
+          footer{
+            position: static !important;
+          }
+        }
+        @media(max-height:823px){
+          
+          footer{
+            position: static !important;
+          }
+        }
+        @media(min-height:640px){
+          .page-header{
+            padding-top: 25%
+          }
+          
+        }
+        @media(max-height:640px){
+         
+          footer{
+            position: static !important;
+          }
+        }
+        @media(min-height:731px){
+          .page-header{
+            padding-top: 0%;
+          }
+        }
+        @media(max-height:731px){
+         
+          footer{
+            position: static !important;
+          }
+        }
+        @media(max-height:568px){
+          .page-header{
+            padding-top: 50%;
+          }
+          footer{
+            position: static !important;
+          }
+        }
+        @media(min-height:1366px){
+          footer{
+            position: fixed;
+          }
+        }
+        @media(max-height:812px){
+          
+          footer{
+            position: static !important;
+          }
+        }
+        body{
+          
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }
+      </style>
+      {% endblock %}
+</head>
 
-                <main id="cadastro_teste" class="jumbotron jumbotron">
-                    <div >
-                        <div><h1 style="text-decoration: underline" class="cadastro">Cadastre-se</h1></div>
-                        <hr class="my-4">
-                        
-                        <form id="form" method="POST"> 
-                                {% csrf_token %}             
-                            <div id="inputs1" class="inputs"><label class="labels" for="nome"><h5>Nome</h5></label>
-                               {% render_field form.first_name class+="input" placeholder+="Nome" autofocus+="True" required+="True" size+="30" %}
-                            </div>
-                            
-                            <div class="inputs" id="inputs2" ><label  style="margin-left: -4%" class="labels" for="nome"><h5>Sobrenome</h5></label>
-                                {% render_field form.last_name class+="input" placeholder+="Sobrenome" required+="True" size+="30" %}
-                            </div>
-
-                            <div id="inputs3" class="inputs"><label class="labels" for="email"><h5>Email</h5></label>
-                                {% render_field form.username class+="input" placeholder+="enxemplo@exemplo.com" required+="True" size+="30" %}
-                            </div>
-
-                            <div id="inputs4" class="inputs"><label class="labels" for="senha1"><h5>Senha</h5></label>
-                                {% render_field form.password1 class+="input" id+="password" placeholder+="Senha" type="password" required+="True" min_length+="8" max_length+="16" size+="30" %}
-                            </div>
-
-                            <div id="inputs5" class="inputs"><label class="labels" class="confirmar_cadastro1" for="confirma"><h5>Confirmar Senha</h5></label>
-                              {% render_field form.password2 class+="input" placeholder+="Repita a Senha" id+="confirm_password" type="password" required+="True" min_length+="8" max_length+="16" size+="30" onClick+="validatePassword()" %}<span class="validity"></span>
-                            </div>
-
-                            <div class="inputs"><input class="inp1-" id="botao_cadastro1" type="submit" name="enviar" value="Cadastrar"></div>
-                               
-                        </form>
-                    </div>
-                </main>       
+<body>
+    
+  {% block content %}
+  <nav class="navbar navbar-static-top navbar-expand-lg" color-on-scroll="100" style="margin-bottom: 0%;">
+      <div class="container">
+        <div class="navbar-translate">
+          <a class="navbar-brand mx-auto" href="/" style=" font-size: 2rem">
+            Estudos.ninja </a>
+        </div>
+    </nav>    
+  <div class="page-header page-filter" style="background: url(/static/assets-kit/img/bg-01.jpg) no-repeat center center fixed;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-8 ml-auto mr-auto">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title text-center">Cadastro</div>
             </div>
-        </div>       
-        
-        <footer>
-            <div class="jumbotron jumbotron">&copy; Copyright<strong> Estudos.Ninja 2018.</strong> Todos os direitos reservados à <a href="https://mambee-ifpi.firebaseapp.com/" target="_blank"> Mambee - Fábrica e Escola de Software.</a></div>
-        </footer>
-        
-        <script>
-                var password = document.getElementById("password")
-                    , confirm_password = document.getElementById("confirm_password");
-                
-                function validatePassword(){
-                if(password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Senhas diferentes!");
-                } else {
+            <div class="card-body">
+              <form method="POST">{% csrf_token %}
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="id_first_name">Nome</label>
+                    {% render_field form.first_name placeholder="Nome" class+="form-control" size+="35" required+="True" %}
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="id_last_name">Sobrenome</label>
+                    {% render_field form.last_name placeholder+="Sobrenome" class+="form-control" size+="35" required+="True" %}
                     
-                    confirm_password.setCustomValidity('');
-                    }
-                }
-                
-                password.onchange = validatePassword;
-                confirm_password.onkeyup = validatePassword;
-                    </script>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="id_username">Email</label>
+                  {% render_field form.username placeholder+="Email" class+="form-control" size+="35" required+="True" %}
+                  
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="id_password1">Senha</label>
+                    {% render_field form.password1 placeholder+="Insira a Senha" class+="form-control" size+="35" required+="True" %}
+                    
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="id_password2">Confirmar Senha</label>
+                    {% render_field form.password2 placeholder+="Repita a Senha" class+="form-control" size+="35" required+="True" %}
+                    
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary center-block">Cadastrar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
 
-    </body>
-</html> 
+      </div>
+      <footer class="page-footer font-small blue static-bottom">
+        <div class="container">
+          <div class="row py-4 d-flex align-items-center">
+            <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+              <a href="https://www.creative-tim.com/license">
+                Licenses
+              </a>
+            </div>
+            <div class="col-md-6 col-lg-7 text-center text-md-right" style="color:white">
+              &copy;
+              <script>
+                document.write(new Date().getFullYear())
+              </script>, made with <i class="material-icons">favorite</i> by
+              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+  </div>
+</body>
+{% endblock %}
+</html>

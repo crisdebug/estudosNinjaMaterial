@@ -1,78 +1,142 @@
+{% extends 'atividades/_layouts/template.html' %}
+
 {% load staticfiles %}
 {% load widget_tweaks %}
 <!DOCTYPE html>
-<html lang="pt-BR">
-    <head>
-        <title>Login</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/testes.css' %}">
-        <link rel="stylesheet" href="{% static 'bootstrap-4.1.1-dist/css/bootstrap.css' %}">
-        <link rel="shortcut icon" href="{% static 'imagens/ninja.png' %}" type="image/png">
-    </head>
 
-    <body style="width: 100%;">
-        <div class="bg-contact2" style="background-image: url('/static/imagens/bg-011.jpg');">
-            <div class="container-contact2">
-                <header>
-                    <h1 style="color: white;">O Estudos.Ninja é uma plataforma web pensada para você se organizar nos seus estudos.</h1>
-                </header>
-                {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4>
-                        <i class="fa fa-warning"></i>
-                        Aviso:
-                    </h4>
-                    <p>{{ message }}</p>
+<html lang="en">
 
-                </div>
-            {% endfor %}
-        {% endif %}
-                <main >
-                    <div class="jumbotron jumbotron" id="container">
-                        <section class="cabeçalho">
-                            <h1 id="login">Login</h1>
-                            <hr class="my-6">
-                        </section>
+<head>
+  {% block title %} <title>Login</title> {% endblock %}
 
-                        <form class="formulario" method="POST">{% csrf_token %}
-                            <div class="primeiros">
-                                <div class="inp" id="esp">
-                                    <label class="inp_inp" id="inp" for="email">Email</label>
-                                    {% render_field form.username placeholder+="exemplo@exemplo.com" size+='35' id+='email' required="True" max_length+="254" required="True" help_text+='Informe um Email válido' %}
-                                        
-                                </div>
+  {% block style %}
+  <link href="{% static 'assets-kit/demo/demo.css' %}" rel="stylesheet" />
+  <style>
+    .btn-primary{
+      background-color: #00bcd4 !important
+    }
+@media(max-width:320px){
+    .page-header{
+      padding-top: 25%;
+    }    
+    }
+    @media(max-width:425px){
+      .page-header{
+        padding-top: 10%;
+      }
+    }
+    @media(max-height:568px){
+      .page-header{
+        padding-top: 25%;
+      }
+    }
+    @media(max-height:1366px){
+      footer{
+        position: fixed;
+      }
+    }
+    @media(max-height:823px){
+      footer{
+        position: static !important;
+      }
+    }
+    body{
+      background: url(/static/assets-kit/img/bg-011.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+  </style>
+  {% endblock %}
+</head>
 
-                                <div class="inp">
-                                    <label class="inp_inp" id="inp" for="senha">Senha</label>
-                                    {% render_field form.password placeholder+="Senha" size+='35', id+='email' type="password" required="True", min_length+="8", max_length+="16" %}
-                                </div>
-                            </div>
-
-                            <div class="inp2"> 
-                                <input type="checkbox" id="logado" name="logado" value="sim" checked>
-                                <label id = "logado" for="logado">Manter-me logado</label>
-                                <input class="inp1-" type="submit" name="enviar" value="Entrar">
-                            </div>
-
-                            
-                        </form>
-                        <div class="inp3">
-                            <p>Esqueceu sua senha? clique <a href="{% url 'password_reset' %}" target="">aqui</a> para recuperá-la.</p>
-                            <p>Não tem conta no Estudos.Ninja? <a href="{% url 'cadastro' %}" target="">Cadastre-se</a> agora mesmo e se torne um ninja nos estudos.</p>
-                        </div>
-                    </div>    
-                </main>
-            </div>
+<body class="login-page sidebar-collapse">
+  {% block content %}  
+  <nav class="navbar navbar-static-top navbar-expand-lg" color-on-scroll="100" style="margin-bottom: 0%;">
+      <div class="container">
+        <div class="navbar-translate">
+          <a class="navbar-brand mx-auto" href="/" style=" font-size: 2rem">
+            Estudos.ninja </a>
         </div>
+    </nav>
+  <div class="page-header header-filter" style="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 ml-auto mr-auto">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title text-center">Login</h4>
+            </div>
+            <div class="card-body">
+              <form class="text-center" method="POST">{% csrf_token %}
+                <div class="form-group">
+                  <label for="id_username" style="color:black">Email:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">email</i>
+                      </span>
+                    </div>
+                    {% render_field form.username placeholder+="exemplo@exemplo.com" size+='35' required="True" class+="form-control" %}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="id_password" style="color:black">Senha:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock</i>
+                      </span>
+                    </div>
+                    {% render_field form.password placeholder+="Insira sua senha..." size+='35' required+="True" min_length+='8' max_length+='16' class+="form-control" %}
+                    
+                  </div>
+                
+                </div>
+                <h6><a href="/password_reset">Esqueci minha senha</a></h6>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="">
+                    Manter-me conectado
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
 
-         <footer>
-            <div class="jumbotron jumbotron">&copy; Copyright<strong> Estudos.Ninja 2018.</strong> Todos os direitos reservados à <a href="https://mambee-ifpi.firebaseapp.com/" target="_blank"> Mambee - Fábrica e Escola de Software.</a></div>
+                <h5>Não tem uma conta? <a href="/cadastro">Cadastre-se</a></h5>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="page-footer font-small blue fixed-bottom">
+          <div class="container">
+            <div class="row py-4 d-flex align-items-center">
+              <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                <a href="https://www.creative-tim.com/license">
+                  Licenses
+                </a>
+              </div>
+              <div class="col-md-6 col-lg-7 text-center text-md-right">
+                &copy;
+                <script>
+                  document.write(new Date().getFullYear())
+                </script>, made with <i class="material-icons">favorite</i> by
+                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+              </div>
+            </div>
+          </div>
         </footer>
+    </div>
+    </div>
+    {% endblock %}
+    <!--   Core JS Files   -->
+    
+</body>
 
-    </body>
 </html>
